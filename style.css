@@ -42,6 +42,9 @@ h4{
     width: 45%;
 }
 
-canvas{
-    background-color: white;
+video{
+    background: url('game_console.png');
+    background-size: cover;
+    background-position: center;
+    padding: 25px;
 }

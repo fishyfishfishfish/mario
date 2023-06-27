@@ -16,8 +16,10 @@ function setup() {
 	canvas.parent('canvas');
 	instializeInSetup(mario);
 	video=createCapture(VIDEO);
-	video.size(1200,300);
-	posenet=ml5.posenet(video,modelLoaded);
+	video.size(800,400);
+	video.parent('game_console');
+	posenet=ml5.poseNet(video,modelLoaded);
+	posenet.on('pose',gotPoses);
 }
 
 function draw() {
@@ -26,6 +28,12 @@ function draw() {
 
 function modelLoaded(){
 	console.log('model is loaded');
+}
+
+function gotPoses(results){
+console.log(results);
+noseX=results[0].pose.nose.x;
+noseY=results[0].pose.nose.y;
 }
 
 
